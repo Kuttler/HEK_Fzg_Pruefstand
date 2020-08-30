@@ -3,13 +3,13 @@ float rpm;
 volatile byte pulses;
 unsigned long timeold;
 const byte numReadings = 10;
-// Variables for smoothing tachometer:
-unsigned long Anzeige=0.0;  // The input.
-unsigned long MW_C=0.0;  // The index of the current reading.
-unsigned long MW=0.0;  // The running total.
-unsigned long RPM;  // The running total.
-unsigned long Drehzahl;  // The running total.
-  // The RPM value after applying the smoothing
+
+unsigned long Anzeige=0.0;  
+unsigned long MW_C=0.0;  
+unsigned long MW=0.0;
+unsigned long RPM; 
+unsigned long Drehzahl;  
+
 
 int Summe_Abweichung=0;
 int Soll_Wert;
@@ -32,8 +32,8 @@ int Drehzahl_Ist;
 
 void counter()
 {
-  pulses++; //every time this subprogram runs, the number of pulses is increased by 1
-  if (pulses >= 10) { //this part of the code calculates the rpm and rps in a way that every time the magnet passes by the sensor, the time between the pulses is measured and rpm and rps is calculated
+  pulses++; 
+  if (pulses >= 10) { 
     detachInterrupt(0);
     rpm = 1000000.0 / (micros() - timeold) * 60;
     timeold = micros();
