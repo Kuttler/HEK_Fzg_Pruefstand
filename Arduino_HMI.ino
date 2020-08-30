@@ -61,7 +61,7 @@ void Betriebsmoduseingabe();
 int Zustand = 0;
 
 void setup() 
-{/*
+{
   Faktor_Berechnug_Potentiometer();
   Initalisierung_Datenlogger();
   Initalisierung_Displays();
@@ -71,10 +71,10 @@ void setup()
   Wire.begin();
   Display_Amzeige_Zustand_Start ();
   Display_Amzeige_Zustand_0 ();
-}*/
+}
 
 void loop() {
-/*
+
   switch (Zustand) {
     case 0:
       Betriebsmoduseingabe();
@@ -87,7 +87,7 @@ void loop() {
     default:
       break;
   }
-  */
+  
   // Zustand 1
   Fahrzeugmasse = Faktor_Masse * analogRead(Potendtiometer_1); //Rechung für die Parameteränderung
   // bei Änderung der Potentiometer Stellung
@@ -117,7 +117,7 @@ void Faktor_Berechnug_Potentiometer()//Fertig nicht getestet
   Faktor_Reibung = Reibungskoeffizient / analogRead(Potendtiometer_2); //Der Faktor der Reibung wird
   // berechnet mit der aktuellen Stellung des Poteniometers, dies ist somit der Nullpunkt
 }
-/*void Faktor_Berechnug_Potentiometer_2()//Fertig nicht getestet
+void Faktor_Berechnug_Potentiometer_2()//Fertig nicht getestet
 {
   Faktor_Bremse = Bremseinstellung / analogRead(Potendtiometer_1); //Der Faktor der Masse wird
   // berechnet mit der aktuellen Stellung des Poteniometers, dies ist somit der Nullpunkt
@@ -130,7 +130,7 @@ void Initalisierung_Datenlogger()//Fertig nicht getestet
     rtc.adjust(DateTime(F(__DATE__), F(__TIME__))); //Initlisieren des RTC mit der Zeit/Datum des Computers
   }
   pinMode(pinCS, OUTPUT);
-}*/
+}
 void Datenspeichern_Datenlogger() //Fertig nicht getestet
 {
   outFile = SD.open(filename, FILE_WRITE); /*Öffnet bzw. erzeugt die Datei wenn sie noch nicht vorhanden ist*/
